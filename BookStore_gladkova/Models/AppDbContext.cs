@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BookStore.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStore_gladkova.Models
 {

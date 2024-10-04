@@ -17,15 +17,70 @@ h1, h4 {
     color:saddlebrown;
 }
 
+.buying {
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.pricing {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.adding {
+    display: grid;
+    grid-template-columns: 2fr 0.5fr;
+}
+
+
+.favButton {
+    grid-column: 2;
+    border: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 25pt;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    justify-self: right;
+    text-align: center;
+    background: none;
+    color: #887756;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
 }
 
+.catalDiv {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.card, .mb-3 {
+    grid-column: 2;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+.card-text {
+    font-size: 12pt;
+}
+
+.naving {
+    grid-column: 1;
+}
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -62,10 +117,23 @@ nav {
     margin-right: 40px;
 }
 
+.navv {
+    color: saddlebrown;
+    font-family: 'Alegreya Italic';
+    font-weight: lighter;
+    font-size: 16pt;
+}
+
+.nav-itemAAA {
+    margin-bottom: 40px;
+}
+
 .container {
     color: rgb(115, 65, 30);
     font-family: Georgia;
     font-weight: lighter;
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .intro {

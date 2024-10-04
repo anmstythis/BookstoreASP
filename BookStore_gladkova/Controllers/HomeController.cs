@@ -17,8 +17,22 @@ namespace BookStore_gladkova.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewData["college"] = "Mpt";
-            return View(await _appDbContext.Books.ToListAsync());
+            return View();
+        }
+
+        public async Task<IActionResult> Catalogue(string type)
+        {
+            var book = string.IsNullOrEmpty(type)
+                ? _appDbContext.Books.Include(b => b.Author).Include(b => b.TypeOfBook).ToListAsync()
+                : _appDbContext.Books.Include(b => b.Author).Include(b => b.TypeOfBook)
+                .Where(b => b.TypeOfBook.Name_Type == type).ToListAsync();
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return View(await book);
         }
 
         public IActionResult About() => View();

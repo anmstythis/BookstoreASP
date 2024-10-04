@@ -1,5 +1,47 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<Book>;
 @{
+    ViewData["Title"] = "Каталог";
+
 }
+
+
+<div class="catalDiv">
+    <div class="naving">
+        <ul class="nav flex-column">
+            @foreach (var type in Model.Select(t => t.TypeOfBook.Name_Type).Distinct())
+            {
+                <li class="nav-itemAAA">
+                    <a class="navv" href="@Url.Action("Catalogue", "Home", new { type = type })">@type</a>
+                </li>
+            }
+        </ul>
+    </div>
+    @foreach (var book in Model)
+    {
+        <div class="card mb-3" style="max-width: 600px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src=@book.Image_Link class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="adding">
+                    <h5 class="card-title">@book.Title_Book</h5>
+                    <button class="favButton">❤</button>
+                </div>
+                <p class="card-text">
+                    @((book.Description_Book.Length > 200)
+                        ? book.Description_Book.Substring(0, 200) + "..."
+                        : book.Description_Book)
+                </p>
+                <p class="card-text"><small class="text-body-secondary">@($"{book.Author.Name_Author} {book.Author.Patronymic_Author} {book.Author.Surname_Author}")</small></p>
+              </div>
+              <div class="buying">
+                <h5 class="pricing">@($"{book.Price_Book} ₽")</h5>
+                <button type="button" class="btn btn-dark">Купить</button>
+             </div>
+            </div>
+          </div>
+        </div>
+    }
+</div>
